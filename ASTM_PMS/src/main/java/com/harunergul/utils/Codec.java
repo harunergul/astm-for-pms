@@ -1,4 +1,6 @@
-package com.harunergul.entity;
+package com.harunergul.utils;
+
+import com.harunergul.entity.Record;
 
 public class Codec {
 

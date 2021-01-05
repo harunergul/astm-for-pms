@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.harunergul.entity.ClassFieldOrder.FieldOrder;
 import com.harunergul.entity.Order;
 
@@ -13,7 +15,6 @@ public class Util<T> {
 		Field[] fields = clazz.getDeclaredFields();
 
 		Arrays.sort(fields, new Comparator<Field>() {
-			@Override
 			public int compare(Field o1, Field o2) {
 				FieldOrder or1 = o1.getAnnotation(FieldOrder.class);
 				FieldOrder or2 = o2.getAnnotation(FieldOrder.class);
@@ -33,6 +34,7 @@ public class Util<T> {
 		int i = 0;
 		for (Field field : fields) {
 			orderedFields[i] = field.getName();
+			i++;
 		}
 		return orderedFields;
 	}
@@ -42,8 +44,7 @@ public class Util<T> {
 		order.setAction_code("abc");
 		order.setBiomaterial("ABCDEF");
 		String[] fieldsss = Util.getFieldsInOrder(Order.class);
-		System.out.println(fieldsss);
-
+		System.out.println(StringUtils.join(fieldsss, "|"));
 	}
 
 }
