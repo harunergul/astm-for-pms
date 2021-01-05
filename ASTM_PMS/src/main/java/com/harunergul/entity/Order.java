@@ -1,5 +1,7 @@
 package com.harunergul.entity;
 
+import com.harunergul.entity.ClassFieldOrder.FieldOrder;
+ 
 /*
  * 
  #: +-----+--------------+--------------------------------+--------------------+
@@ -65,37 +67,100 @@ package com.harunergul.entity;
  * @author Harun ERGUL
  * @date Jan 5, 2021
  */
-public class Order {
+public class Order extends Record{
+	
+	
+	@FieldOrder(value=0)
 	private String type = "O";
+	
+	@FieldOrder(value=1)
 	private Integer seq = 1;
+	
+	@FieldOrder(value=2)
 	private String sample_id;
+	
+	@FieldOrder(value=3)
 	private String instrument;
+	
+	@FieldOrder(value=4)
 	private String test;
+	
+	@FieldOrder(value=5)
 	private String priority;
+	
+	@FieldOrder(value=6)
 	private String created_at;
+
+	@FieldOrder(value=7)
 	private String sampled_at;
+	
+	@FieldOrder(value=8)
 	private String collected_at;
+	
+	@FieldOrder(value=9)
 	private String volume;
+	
+	@FieldOrder(value=10)
 	private String collector;
+	
+	@FieldOrder(value=11)
 	private String action_code;
+	
+	@FieldOrder(value=12)
 	private String danger_code;
+	
+	@FieldOrder(value=13)
 	private String clinical_info;
+	
+	@FieldOrder(value=14)
 	private String delivered_at;
+	
+	@FieldOrder(value=15)
 	private String biomaterial;
+	
+	@FieldOrder(value=16)
 	private String physician;
+	
+	@FieldOrder(value=17)
 	private String physician_phone;
+	
+	@FieldOrder(value=18)
 	private String user_field_1;
+	
+	@FieldOrder(value=19)
 	private String user_field_2;
+	
+	@FieldOrder(value=20)
 	private String laboratory_field_1;
+	
+	@FieldOrder(value=21)
 	private String laboratory_field_2;
+	
+	@FieldOrder(value=22)
 	private String modified_at;
+	
+	@FieldOrder(value=23)
 	private String instrument_charge;
+	
+	@FieldOrder(value=24)
 	private String instrument_section;
+	
+	@FieldOrder(value=25)
 	private String report_type;
+	
+	@FieldOrder(value=26)
 	private String reserved;
+	
+	@FieldOrder(value=27)
 	private String location_ward;
+	
+	@FieldOrder(value=28)
 	private String infection_flag;
+	
+	@FieldOrder(value=29)
 	private String specimen_service;
+	
+	@FieldOrder(value=30)
 	private String laboratory;
 
 	public String getType() {
