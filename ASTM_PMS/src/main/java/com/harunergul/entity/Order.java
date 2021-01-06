@@ -1,11 +1,18 @@
 package com.harunergul.entity;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import com.harunergul.entity.ClassFieldOrder.FieldOrder;
- 
+import com.harunergul.entity.types.OrderActionCode;
+import com.harunergul.entity.types.OrderPriorityAction;
+import com.harunergul.entity.types.OrderReportType;
+import com.harunergul.utils.Util;
+
 /*
  * 
- #: +-----+--------------+--------------------------------+--------------------+
-#: |  #  | ASTM Field # | ASTM Name                      | Python alias       |
+#: +-----+--------------+--------------------------------+--------------------+
+#: |  #  | ASTM Field # | ASTM Name                      |        Alias       |
 #: +=====+==============+================================+====================+
 #: |   1 |        9.4.1 |                 Record Type ID |               type |
 #: +-----+--------------+--------------------------------+--------------------+
@@ -67,100 +74,99 @@ import com.harunergul.entity.ClassFieldOrder.FieldOrder;
  * @author Harun ERGUL
  * @date Jan 5, 2021
  */
-public class Order extends Record{
-	
-	
-	@FieldOrder(value=0)
-	private String type = "O";
-	
-	@FieldOrder(value=1)
-	private Integer seq = 1;
-	
-	@FieldOrder(value=2)
-	private String sample_id;
-	
-	@FieldOrder(value=3)
-	private String instrument;
-	
-	@FieldOrder(value=4)
-	private String test;
-	
-	@FieldOrder(value=5)
-	private String priority;
-	
-	@FieldOrder(value=6)
-	private String created_at;
+public class Order extends Record {
 
-	@FieldOrder(value=7)
+	@FieldOrder(value = 1)
+	private String type = "O";
+
+	@FieldOrder(value = 2)
+	private Integer seq = 1;
+
+	@FieldOrder(value = 3)
+	private String sample_id;
+
+	@FieldOrder(value = 4)
+	private String instrument;
+
+	@FieldOrder(value = 5)
+	private String test;
+
+	@FieldOrder(value = 6)
+	private String priority=OrderPriorityAction.ROUTINE.getValue();
+
+	@FieldOrder(value = 7)
+	private Date created_at = new Date();
+
+	@FieldOrder(value = 8)
 	private String sampled_at;
-	
-	@FieldOrder(value=8)
+
+	@FieldOrder(value = 9)
 	private String collected_at;
-	
-	@FieldOrder(value=9)
+
+	@FieldOrder(value = 10)
 	private String volume;
-	
-	@FieldOrder(value=10)
+
+	@FieldOrder(value = 11)
 	private String collector;
-	
-	@FieldOrder(value=11)
+
+	@FieldOrder(value = 12)
 	private String action_code;
-	
-	@FieldOrder(value=12)
+
+	@FieldOrder(value = 13)
 	private String danger_code;
-	
-	@FieldOrder(value=13)
+
+	@FieldOrder(value = 14)
 	private String clinical_info;
-	
-	@FieldOrder(value=14)
+
+	@FieldOrder(value = 15)
 	private String delivered_at;
-	
-	@FieldOrder(value=15)
+
+	@FieldOrder(value = 16)
 	private String biomaterial;
-	
-	@FieldOrder(value=16)
+
+	@FieldOrder(value = 17)
 	private String physician;
-	
-	@FieldOrder(value=17)
+
+	@FieldOrder(value = 18)
 	private String physician_phone;
-	
-	@FieldOrder(value=18)
+
+	@FieldOrder(value = 19)
 	private String user_field_1;
-	
-	@FieldOrder(value=19)
+
+	@FieldOrder(value = 20)
 	private String user_field_2;
-	
-	@FieldOrder(value=20)
+
+	@FieldOrder(value = 21)
 	private String laboratory_field_1;
-	
-	@FieldOrder(value=21)
+
+	@FieldOrder(value = 22)
 	private String laboratory_field_2;
-	
-	@FieldOrder(value=22)
+
+	@FieldOrder(value = 23)
 	private String modified_at;
-	
-	@FieldOrder(value=23)
+
+	@FieldOrder(value = 24)
 	private String instrument_charge;
-	
-	@FieldOrder(value=24)
+
+	@FieldOrder(value = 25)
 	private String instrument_section;
-	
-	@FieldOrder(value=25)
+
+	@FieldOrder(value = 26)
 	private String report_type;
-	
-	@FieldOrder(value=26)
+
+	@FieldOrder(value = 27)
 	private String reserved;
-	
-	@FieldOrder(value=27)
+
+	@FieldOrder(value = 28)
 	private String location_ward;
-	
-	@FieldOrder(value=28)
+
+	@FieldOrder(value = 29)
 	private String infection_flag;
-	
-	@FieldOrder(value=29)
+
+	@FieldOrder(value = 30)
 	private String specimen_service;
-	
-	@FieldOrder(value=30)
+
+	@FieldOrder(value = 31)
 	private String laboratory;
 
 	public String getType() {
@@ -199,23 +205,23 @@ public class Order extends Record{
 		return test;
 	}
 
-	public void setTest(String test) {
-		this.test = test;
+	public void setTest(ArrayList<?> tests) {
+		this.test = Util.formatTests(tests);
 	}
 
 	public String getPriority() {
 		return priority;
 	}
 
-	public void setPriority(String priority) {
-		this.priority = priority;
+	public void setPriority(OrderPriorityAction orderPriority) {
+		this.priority = orderPriority.getValue();
 	}
 
-	public String getCreated_at() {
+	public Date getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(String created_at) {
+	public void setCreated_at(Date created_at) {
 		this.created_at = created_at;
 	}
 
@@ -255,8 +261,9 @@ public class Order extends Record{
 		return action_code;
 	}
 
-	public void setAction_code(String action_code) {
-		this.action_code = action_code;
+	public void setAction_code(OrderActionCode action_code) {
+
+		this.action_code = action_code.getValue();
 	}
 
 	public String getDanger_code() {
@@ -367,8 +374,8 @@ public class Order extends Record{
 		return report_type;
 	}
 
-	public void setReport_type(String report_type) {
-		this.report_type = report_type;
+	public void setReport_type(OrderReportType report_type) {
+		this.report_type = report_type.getValue();
 	}
 
 	public String getReserved() {
@@ -411,9 +418,4 @@ public class Order extends Record{
 		this.laboratory = laboratory;
 	}
 
-	public static void main(String... args) {
-		Order order = new Order();
-		
-//		order.to
-	}
 }
