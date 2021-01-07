@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.harunergul.entity.ClassFieldOrder.FieldOrder;
 import com.harunergul.entity.Order;
 import com.harunergul.entity.types.OrderActionCode;
+import com.harunergul.utils.ClassFieldOrder.FieldOrder;
 
 /**
  * 
@@ -87,7 +87,7 @@ public class Util<T> {
 	public static void main(String... args) {
 		Order order = new Order();
 		order.setAction_code(OrderActionCode.CANCEL_TEST);
-		order.setBiomaterial("ABCDEF");
+		order.setBiomaterial("ABCDEF"); //$NON-NLS-1$
 		Field[] fieldsss = Util.getFieldsInOrder(Order.class);
 
 		// System.out.println(StringUtils.join(fieldsss, "|"));
@@ -97,7 +97,7 @@ public class Util<T> {
 	public static String formatTests(ArrayList<?> tests) {
 
 		ArrayList<String> testList = new ArrayList<String>();
-		if (tests!=null && tests.size()>0) {
+		if (tests != null && tests.size() > 0) {
 			if (tests.get(0) instanceof String) {
 				for (Object object : tests) {
 					String test = (String) object;
@@ -111,9 +111,29 @@ public class Util<T> {
 			}
 
 		}
-		
-		String appendedTest = StringUtils.join(testList, "\\^^^");
-		return StringUtils.prependIfMissing(appendedTest, "^^^");
+
+		String appendedTest = StringUtils.join(testList, "\\^^^"); 
+		return StringUtils.prependIfMissing(appendedTest, "^^^"); 
+
+	}
+
+	public static String replaceTurkishChars(String variable) {
+
+		if (variable == null) {
+			return ""; //$NON-NLS-1$
+		} else {
+			variable = variable.replace(Messages.getString("Util.4"), "C"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.6"), "G"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.8"), "I"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.10"), "O"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.12"), "S"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.14"), "U"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.16"), "g"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.18"), "o"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.20"), "s"); //$NON-NLS-1$ //$NON-NLS-2$
+			variable = variable.replace(Messages.getString("Util.22"), "ü"); //$NON-NLS-1$ //$NON-NLS-2$
+			return variable;
+		}
 
 	}
 
