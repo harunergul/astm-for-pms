@@ -3,11 +3,11 @@ package com.harunergul.entity;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.harunergul.entity.ClassFieldOrder.FieldOrder;
 import com.harunergul.entity.types.OrderActionCode;
 import com.harunergul.entity.types.OrderPriorityAction;
 import com.harunergul.entity.types.OrderReportType;
 import com.harunergul.utils.Util;
+import com.harunergul.utils.ClassFieldOrder.FieldOrder;
 
 /*
  * 
@@ -154,6 +154,7 @@ public class Order extends Record {
 	@FieldOrder(value = 26)
 	private String report_type;
 
+	/*
 	@FieldOrder(value = 27)
 	private String reserved;
 
@@ -168,7 +169,7 @@ public class Order extends Record {
 
 	@FieldOrder(value = 31)
 	private String laboratory;
-
+*/
 	public String getType() {
 		return type;
 	}
@@ -377,7 +378,7 @@ public class Order extends Record {
 	public void setReport_type(OrderReportType report_type) {
 		this.report_type = report_type.getValue();
 	}
-
+/*
 	public String getReserved() {
 		return reserved;
 	}
@@ -417,5 +418,5 @@ public class Order extends Record {
 	public void setLaboratory(String laboratory) {
 		this.laboratory = laboratory;
 	}
-
+*/
 }
