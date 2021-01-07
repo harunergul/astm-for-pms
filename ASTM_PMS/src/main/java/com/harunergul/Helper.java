@@ -1,10 +1,12 @@
 package com.harunergul;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.harunergul.entity.Header;
 import com.harunergul.entity.Order;
+import com.harunergul.entity.Patient;
 import com.harunergul.entity.Record;
 import com.harunergul.entity.types.OrderActionCode;
 import com.harunergul.entity.types.OrderReportType;
@@ -23,6 +25,19 @@ public class Helper {
 		order.setReport_type(OrderReportType.ORDER_RECORD);
 		order.setSample_id("11703100");
 
+		Patient patient = new Patient();
+		patient.setSeq(1);
+		patient.setLaboratory_id("204092702");
+		patient.setName("ÖZGE","ŞEVVAL");
+		patient.setSex("F");
+		patient.setAdmission_date(new Date());
+		
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.set(Calendar.YEAR, 1980);
+		patient.setBirthdate(cal.getTime());
+		
 		ArrayList<String> tests = new ArrayList<String>();
 		tests.add("14755");
 		tests.add("3754");
@@ -31,7 +46,9 @@ public class Helper {
 
 		ArrayList<Record> records = new ArrayList<Record>();
 		records.add(header);
+		records.add(patient);
 		records.add(order);
+		
 
 		Codec codec = new Codec();
 		System.out.println(codec.encode(records, null, null, 1));
@@ -76,6 +93,7 @@ public class Helper {
 		order.setAction_code(OrderActionCode.CANCEL_TEST);
 		order.setReport_type(OrderReportType.CORRECTION);
 		order.setSample_id("11703100");
+		
 
 		ArrayList<String> tests = new ArrayList<String>();
 		tests.add("14755");

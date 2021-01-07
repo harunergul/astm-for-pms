@@ -1,4 +1,4 @@
-package com.harunergul.entity;
+package com.harunergul.utils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

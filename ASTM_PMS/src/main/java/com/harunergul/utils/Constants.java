@@ -1,4 +1,4 @@
-package com.harunergul.entity;
+package com.harunergul.utils;
 
 public class Constants {
 

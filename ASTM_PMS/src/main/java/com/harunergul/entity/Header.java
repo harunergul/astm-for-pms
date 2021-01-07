@@ -3,7 +3,7 @@ package com.harunergul.entity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.harunergul.entity.ClassFieldOrder.FieldOrder;
+import com.harunergul.utils.ClassFieldOrder.FieldOrder;
 
 /*
  

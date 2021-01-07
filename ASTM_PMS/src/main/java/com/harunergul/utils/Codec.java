@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.harunergul.entity.Header;
 import com.harunergul.entity.Order;
+import com.harunergul.entity.Patient;
 import com.harunergul.entity.Record;
 import com.harunergul.entity.types.OrderActionCode;
 
@@ -99,6 +100,15 @@ public class Codec {
 					Date resultDate = (Date) field.get(record);
 					if (resultDate != null) {
 						SimpleDateFormat format = new SimpleDateFormat("YYYYMMDDHHmm00");
+						result = format.format(resultDate.getTime());
+					}
+				} else if (record instanceof Patient) {
+					Date resultDate = (Date) field.get(record);
+					if (resultDate != null) {
+						SimpleDateFormat format = new SimpleDateFormat("YYYYMMDDHHmm00");
+						if (field.getName().equals("birthdate")) {
+							format = new SimpleDateFormat("YYYYMMDD");
+						}
 						result = format.format(resultDate.getTime());
 					}
 				}
