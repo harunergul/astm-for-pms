@@ -174,8 +174,8 @@ public class Patient extends Record {
 	@FieldOrder(value = 34)
 	private String hospital_institution;
 
-	@FieldOrder(value = 35)
-	private String dosage_category;
+//	@FieldOrder(value = 35)
+//	private String dosage_category;
 
 	public Integer getSeq() {
 		return seq;
@@ -451,13 +451,13 @@ public class Patient extends Record {
 		this.hospital_institution = hospital_institution;
 	}
 
-	public String getDosage_category() {
-		return dosage_category;
-	}
-
-	public void setDosage_category(String dosage_category) {
-		this.dosage_category = dosage_category;
-	}
+//	public String getDosage_category() {
+//		return dosage_category;
+//	}
+//
+//	public void setDosage_category(String dosage_category) {
+//		this.dosage_category = dosage_category;
+//	}
 
 	public String getType() {
 		return type;
