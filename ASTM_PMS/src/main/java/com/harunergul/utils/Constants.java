@@ -10,27 +10,27 @@ public class Constants {
 	/**
 	 * Message start token.
 	 */
-	public final static byte STX = 0x02;
+	public final static char STX = 2;
 
 	/**
 	 * Message end token.
 	 */
-	public final static byte ETX = 0x03;
+	public final static char ETX = 3;
 
 	/**
 	 * ASTM session termination token.
 	 */
-	public final static byte EOT = 0x04;
+	public final static char EOT = 4;
 
 	/**
 	 * ASTM session initialization token.
 	 */
-	public final static byte ENQ = 0x05;
+	public final static char ENQ = 5;
 
 	/**
 	 * Command accepted token.
 	 */
-	public final static byte ACK = 0x06;
+	public final static char ACK = 6;
 
 	/**
 	 * Command rejected token.
@@ -39,9 +39,11 @@ public class Constants {
 	/**
 	 * Message chunk end token.
 	 */
-	public final static byte ETB = 0x17;
-	public final static byte LF = 0x0A;
-	public final static byte CR = 0x0D;
+	public final static char ETB =17;
+//	public final static byte LF = 0x0A;
+//	public final static byte CR = 0x0D;
+	public final static char CR = 13;
+	public final static char LF= 10;
 
 	/**
 	 * CR + LF shortcut.
