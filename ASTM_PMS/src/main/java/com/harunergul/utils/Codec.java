@@ -20,7 +20,7 @@ import com.harunergul.entity.types.OrderActionCode;
  */
 public class Codec {
 
-	public String encode(ArrayList<Record> records, String encoding, Integer size, int seq) {
+	public ArrayList<String> encode(ArrayList<Record> records, String encoding, Integer size, int seq) {
 		if (encoding == null) {
 			encoding = Record.ENCODING;
 		}
@@ -32,7 +32,7 @@ public class Codec {
 
 	}
 
-	public String encode_message(int seq, ArrayList<Record> records, String encoding) {
+	public ArrayList<String> encode_message(int seq, ArrayList<Record> records, String encoding) {
 		/***
 		 * Encodes ASTM message.
 		 * 
@@ -51,19 +51,14 @@ public class Codec {
 			try {
 				recordStrings.add(encode_record(record, encoding));
 			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		recordStrings.add("L|1|N");
+		return recordStrings;
 
-		return StringUtils.join(recordStrings.toArray(), "\r\n");
-//		 data = RECORD_SEP.join(encode_record(record, encoding)
-//                 for record in records)
-//data = b''.join((str(seq % 8).encode(), data, CR, ETX))
-//return b''.join([STX, data, make_checksum(data), CR, LF])
 	}
 
 	private String encode_record(Record record, String encoding)
