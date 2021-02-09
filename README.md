@@ -5,5 +5,8 @@ This repository includes implementaion for ASTM interface from PSM.
 # Sample QCServer Example
 ![QC](qc_example.PNG)
 
+## QC Sample Message
+![QC](qc_sample_message.png)
+
 # Abbreviations
 ![Abbreviations](abbreviations.png)
