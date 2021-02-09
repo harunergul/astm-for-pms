@@ -170,6 +170,10 @@ public class Order extends Record {
 	@FieldOrder(value = 31)
 	private String laboratory;
 */
+	
+	
+	private ArrayList<String> testHolder;
+	
 	public String getType() {
 		return type;
 	}
@@ -419,4 +423,15 @@ public class Order extends Record {
 		this.laboratory = laboratory;
 	}
 */
+
+	public ArrayList<String> getTestHolder() {
+		if(testHolder==null) {
+			testHolder = new ArrayList<String>();
+		}
+		setTest(testHolder);
+		return testHolder;
+	}
+	
+
+	
 }

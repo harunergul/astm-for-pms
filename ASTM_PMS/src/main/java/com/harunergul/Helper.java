@@ -61,7 +61,8 @@ public class Helper {
 		Order order = new Order();
 		order.setAction_code(OrderActionCode.ADD_ORDER);
 		order.setReport_type(OrderReportType.ORDER_RECORD);
-		order.setSample_id("11703100");
+//		order.setSample_id("11703100");
+		order.setSample_id("10000775");
 
 		Patient patient = new Patient();
 		patient.setSeq(1);

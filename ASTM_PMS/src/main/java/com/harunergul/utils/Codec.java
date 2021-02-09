@@ -124,8 +124,14 @@ public class Codec {
 
 		ArrayList<Record> records = new ArrayList<Record>();
 		records.add(order);
+		order.getTestHolder().add("516");
+		order.getTestHolder().add("279");
+		order.getTestHolder().add("386");
+		order.getTestHolder().add("715");
+		
+		order.setTest(order.getTestHolder());
 
-		codec.encode(records, null, 5, 1);
+		System.out.println(codec.encode(records, null, 5, 1));
 	}
 
 }

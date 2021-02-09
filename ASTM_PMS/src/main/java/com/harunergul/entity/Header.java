@@ -42,6 +42,11 @@ import com.harunergul.utils.ClassFieldOrder.FieldOrder;
  
  
  */
+/**
+ * 
+ * @author Harun ERGUL
+ * @date Jan 13, 2021
+ */
 public class Header extends Record {
 	@FieldOrder(value = 0)
 	private String type = "H";

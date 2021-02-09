@@ -1,5 +1,10 @@
 package com.harunergul.entity;
 
+/**
+ * 
+ * @author Harun ERGUL
+ * @date Jan 13, 2021
+ */
 public abstract class Record {
 	/**
 	 * ASTM specification base encoding.
