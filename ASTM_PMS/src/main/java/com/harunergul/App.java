@@ -1,12 +1,24 @@
 package com.harunergul;
 
-/**
- * Hello world!
- *
- */
+import com.harunergul.server.IAstmHandler;
+import com.harunergul.server.QCServer;
+
 public class App {
+	
 	public static void main(String[] args) {
-		Helper helper = new Helper();
-		System.out.println(helper.createOrder());
+		int QC_PORT = 20032;
+
+		IAstmHandler handler = new IAstmHandler() {
+
+			public void handle(String message) {
+
+				System.out.println(message);//complete ASTM message
+			}
+		};
+
+		QCServer server = new QCServer(QC_PORT, handler);
+		Thread thread = new Thread(server);
+		thread.start();
 	}
+	
 }
